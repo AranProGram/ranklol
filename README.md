@@ -1,6 +1,7 @@
 # RankLOL v3 — pay-to-rank bilingüe para apps indie & AI
 
 Modo demo (sin cobros reales). Pujas se guardan en `localStorage` y se borran cada 30 días.
+Web: https://aranprogram.github.io/ranklol/
 
 ## Stack
 - HTML + CSS + JS puros, sin build
