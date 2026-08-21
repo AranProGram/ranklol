@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Aviso legal · RankLOL</title>
+<style>body{font-family:'Segoe UI',system-ui,sans-serif;background:#07070d;color:#ececf4;max-width:780px;margin:40px auto;padding:24px;line-height:1.6}a{color:#00ff88}h1{font-size:30px;margin-bottom:14px}h2{font-size:20px;margin-top:30px;color:#7c5cff}hr{border:none;border-top:1px solid #1e1e30;margin:20px 0}.warn{background:#1a1408;border:1px solid #ffd23f;border-radius:12px;padding:16px;margin:18px 0;color:#e6c860}code{background:#12121f;padding:2px 6px;border-radius:6px;font-size:12.5px;color:#00ff88}</style>
+</head><body><a href="/">← Volver al ranking</a><h1>Aviso legal</h1>
+<div class="warn"><b>Estado actual:</b> RankLOL está en <b>modo DEMO</b>. Las pujas no se cobran ni se almacenan en ningún servidor. Esta página explica qué pasa cuando activemos cobros reales, y por qué ya no necesitamos licencia DGOJ.</div>
+
+<h2>1. Qué hace RankLOL</h2>
+<p>RankLOL es un directorio pay-to-rank. Pagas una cantidad en dólares y tu entrada aparece más arriba en una tabla pública. Si alguien paga más, te supera. Cada 30 días se reinicia el ranking y vuelve a empezar.</p>
+<p>En modo demo (<code>data-mode="demo"</code>), las pujas se guardan <b>solo en tu navegador</b> (<code>localStorage</code>) y se borran al reset de 30 días. No se cobra dinero y no hay ganador.</p>
+
+<h2>2. Por qué no necesita licencia DGOJ</h2>
+<p>La <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2011-9280">Ley 13/2011 de Regulación del Juego</a> define juego como aquella actividad en la que se arriesgan cantidades de dinero <b>con el objetivo de obtener un premio en metálico</b>.</p>
+<p>RankLOL <b>no tiene premio en metálico</b>. Pagas por aparecer más arriba — es un servicio publicitario, igual que contratar un banner, un post patrocinado o aparecer en una guía. Si en el futuro añades un pozo repartido en metálico entre los más altos, esto cambia y requerirá licencia general de la DGOJ. En esa versión ese modo no estará disponible para residentes en jurisdicciones donde el modelo esté regulado.</p>
+
+<h2>3. Fórmula Stripe cuando activemos cobros</h2>
+<ul>
+  <li>En modo producción usaremos <a href="https://dashboard.stripe.com">Stripe Checkout</a> con comisión standard (~2,9% + 0,25 € por transacción).</li>
+  <li>El cobro va a una cuenta Stripe del operador declarada en AEAT.</li>
+  <li>Se mostrará factura/recibo automático por email.</li>
+  <li>Política anti-spam: una sola entrada por nombre y por importe. Si aparece abuso, moderamos manualmente.</li>
+</ul>
+
+<h2>4. Datos que guardamos</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0"><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #1e1e30;color:#7c5cff">Datos</th><th style="text-align:left;padding:6px;border-bottom:1px solid #1e1e30;color:#7c5cff">Almacenamiento</th></tr><tr><td style="padding:6px;border-bottom:1px solid #1e1e30">Nombre de tu app</td><td style="padding:6px;border-bottom:1px solid #1e1e30">Vercel KV (en producción)</td></tr><tr><td style="padding:6px;border-bottom:1px solid #1e1e30">URL pública de tu web</td><td style="padding:6px;border-bottom:1px solid #1e1e30">Vercel KV (en producción)</td></tr><tr><td style="padding:6px;border-bottom:1px solid #1e1e30">Descripción</td><td style="padding:6px;border-bottom:1px solid #1e1e30">Vercel KV</td></tr><tr><td style="padding:6px;border-bottom:1px solid #1e1e30">Importe pujado (en Stripe)</td><td style="padding:6px;border-bottom:1px solid #1e1e30">Stripe (datos de pago)</td></tr><tr><td style="padding:6px;border-bottom:1px solid #1e1e30">Pujas demo (en modo demo)</td><td style="padding:6px;border-bottom:1px solid #1e1e30">localStorage del navegador</td></tr></table>
+<p>No recogemos nombre, email ni teléfono. No hay login.</p>
+
+<h2>5. Fiscalidad para el operador</h2>
+<ul>
+  <li>El operador declara los ingresos por Stripe como actividad económica. Tarifa plana de autónomos ~80 €/mes el primer año.</li>
+  <li><a href="https://sede.agenciatributaria.gob.es/Sede/procedimientoini/G322.shtml">Modelo 036</a> en AEAT para darse de alta.</li>
+  <li>Asesor fiscal conseillé antes de empezar.</li>
+</ul>
+
+<h2>6. Exención de responsabilidad</h2>
+<p>Esta página es un borrador informativo. El operador validará los términos con un profesional legal antes de activar cobros reales en producción.</p>
+<hr><p style="color:#8a8aa3;font-size:13px">Operador: Colectivo Her · CIF: [A_CUBRIR] · Email: trisararan@gmail.com · Última revisión: Agosto 2026</p></body></html>

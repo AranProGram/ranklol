@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.title">RankLOL — El ranking que se compra</title>
+<meta name="description" data-i18n-attr="content" data-i18n="meta.desc" content="Paga para subir en el ranking de apps indie y AI. Si alguien puja más, te supera. Reset cada 30 días.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="warnbar" id="warnbar">
+  <span data-i18n="warn.dot">⚠️</span>
+  <span data-i18n="warn.text">Modo DEMO. Las pujas no se cobran todavía. Estamos validando la web antes de activar pagos reales.</span>
+  <a href="aviso-legal.html" data-i18n="warn.link">Cómo funciona</a>
+  <button class="warn-x" onclick="document.getElementById('warnbar').remove()" aria-label="close">✕</button>
+</div>
+
+<header class="topbar">
+  <div class="logo">RANK<span>LOL</span><span class="dot">.lol</span></div>
+
+  <div class="topstats">
+    <div class="stat">
+      <span class="label" data-i18n="stats.total">BOTE</span>
+      <span class="value mono" id="totalRaised">$0</span>
+    </div>
+    <div class="stat">
+      <span class="label" data-i18n="stats.bids">PUJAS</span>
+      <span class="value mono" id="totalBids">0</span>
+    </div>
+  </div>
+
+  <div class="topright">
+    <div class="lang" role="group" aria-label="language">
+      <button data-lang="es" class="lang-btn on" aria-pressed="true">ES</button>
+      <button data-lang="en" class="lang-btn" aria-pressed="false">EN</button>
+    </div>
+    <button class="cta" onclick="openBid()" data-i18n="cta.bid">PUJA YA! 💸</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 data-i18n="hero.h1">EL RANKING QUE <span class="grad">SE COMPRA</span></h1>
+  <p class="sub" data-i18n="hero.sub">Paga para subir en el ranking de apps indie y AI. Si alguien puja más, te supera. Reset cada 30 días.</p>
+  <div class="countdown mono" id="countdown">—</div>
+</section>
+
+<section class="bote">
+  <div class="bote-card">
+    <div class="l" data-i18n="bote.l1">BOTE</div>
+    <div class="v" id="bTotal">$0</div>
+    <div class="h" data-i18n="bote.h1">acumulado del mes</div>
+  </div>
+  <div class="bote-card">
+    <div class="l" data-i18n="bote.l2">CIERRE</div>
+    <div class="v mono" id="bDays">—</div>
+    <div class="h" data-i18n="bote.h2">días para reset</div>
+  </div>
+  <div class="bote-card demo">
+    <div class="l" data-i18n="bote.l3">MODO</div>
+    <div class="v" data-i18n="bote.v3">DEMO</div>
+    <div class="h" data-i18n="bote.h3">pujas no se cobran</div>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="board">
+    <div class="board-head">
+      <h2 data-i18n="board.h2">🏆 RANKING</h2>
+      <span class="hint mono" data-i18n="board.hint">ordenado por puja · reset cada 30 días</span>
+    </div>
+    <div class="rows" id="rows"></div>
+    <p class="board-note" data-i18n="board.note">Las filas marcadas <span class="badge-you">TÚ</span> son pujas de demo que añadiste tú en este navegador. Se borran al reset.</p>
+  </section>
+
+  <aside class="side">
+    <div class="card legal">
+      <h3><span class="ico">⚖️</span><span data-i18n="side.legal"> ESTADO LEGAL</span></h3>
+      <p data-i18n="side.legal.body">RankLOL en modo <b>demo</b> no cobra, no reparte premios y no requiere licencia de juego en España. Pagas por aparecer más arriba. La versión con cobros reales saldrá cuando valides tráfico suficiente. Lee <a href="aviso-legal.html">aviso-legal.html</a>.</p>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="side.trend">🔥 TRENDING</h3>
+      <ul class="trend" id="trend"></ul>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="side.act">⚡ ACTIVIDAD</h3>
+      <ul class="act" id="act"></ul>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="side.steps">💡 CÓMO FUNCIONA</h3>
+      <ul class="steps">
+        <li><span data-i18n="steps.1a">1. Puja desde</span> <b>$2</b>.</li>
+        <li data-i18n="steps.2">2. Tu dinero decide tu puesto.</li>
+        <li data-i18n="steps.3">3. Si alguien puja más, bajas.</li>
+        <li><span data-i18n="steps.4a">4. Reset cada</span> <b>30 días</b>.</li>
+        <li data-i18n="steps.5">5. Solo pagas por visibilidad. Sin premio, sin reparto.</li>
+      </ul>
+    </div>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span data-i18n="foot.left">RankLOL — ranking pay-to-rank para apps indie & AI tools. Spanish/English.</span>
+  <span>
+    <a href="aviso-legal.html" data-i18n="foot.legal">aviso legal</a> ·
+    <a href="terminos.html" data-i18n="foot.terms">términos</a> ·
+    <a href="mailto:hola@ranklol.lol">contacto</a>
+  </span>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-box">
+    <button class="x" onclick="closeBid()" aria-label="close">✕</button>
+    <h2 data-i18n="modal.h2">Sube en el ranking 🚀</h2>
+    <p class="muted" data-i18n="modal.muted">Tu puja decide tu posición. Mínimo desde <b>$2</b>.</p>
+
+    <label class="lbl" data-i18n="modal.l1">Nombre</label>
+    <input id="fName" maxlength="40" placeholder="miapp.ai" data-i18n-attr="placeholder" placeholder="miapp.ai">
+
+    <label class="lbl" data-i18n="modal.l2">URL</label>
+    <input id="fUrl" maxlength="80" placeholder="https://miapp.ai" data-i18n-attr="placeholder" placeholder="https://miapp.ai">
+
+    <label class="lbl" data-i18n="modal.l3">Descripción</label>
+    <textarea id="fDesc" maxlength="140" rows="2" placeholder="Una línea que describa tu app" data-i18n-attr="placeholder" placeholder="Una línea que describa tu app"></textarea>
+
+    <div class="lbl" data-i18n="modal.l4">Importe de la puja</div>
+    <div class="chips" id="chips"></div>
+
+    <div class="preview mono" id="preview">—</div>
+
+    <button class="cta big" onclick="payDemo()" data-i18n="modal.cta">REGISTRAR PUJA DEMO 💸</button>
+
+    <p class="fine" data-i18n="modal.fine">En la versión real esto sería un Stripe Checkout. En demo guardamos la puja en este navegador (<b>localStorage</b>) y se borra al reset de 30 días. <a href="aviso-legal.html">Aviso legal</a>.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/seed.js"></script>
+<script src="assets/i18n.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
