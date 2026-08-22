@@ -1,8 +1,0 @@
-{
-  "name": "ranklol",
-  "version": "3.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": { "dev": "npx serve ." },
-  "description": "Pay-to-rank leaderboard bilingüe para apps indie & AI — modo demo (sin cobros)."
-}
