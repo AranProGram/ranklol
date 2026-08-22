@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.title">RankLOL — el ranking pay-to-rank para apps indie y herramientas de IA</title>
+<meta name="description" content="Paga para subir en el ranking pay-to-rank de apps indie y herramientas de IA. Si alguien puja más, te supera. El ranking se reinicia cada 30 días.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="warnbar" id="warnbar">
+  <span data-i18n="warn.dot">⚠️</span>
+  <span id="warnText" data-i18n="warn.text">Modo demo. Las pujas no se cobran y se almacenan de forma local hasta que conectes Supabase desde el panel de ajustes.</span>
+  <a href="como-funciona.html" data-i18n="warn.cta">¿Cómo funciona?</a>
+  <button class="warn-x" onclick="document.getElementById('warnbar').remove()" aria-label="cerrar">✕</button>
+</header>
+
+<header class="topbar">
+  <a class="logo" href="./index.html">RANK<span>LOL</span><span class="dot">.lol</span></a>
+  <nav class="nav" aria-label="principal">
+    <a href="./como-funciona.html" data-i18n="nav.how">Cómo funciona</a>
+    <a href="./contacto.html" data-i18n="nav.contact">Contacto</a>
+    <a href="./terminos.html" data-i18n="nav.terms">Términos</a>
+    <a href="./aviso-legal.html" data-i18n="nav.legal">Aviso legal</a>
+  </nav>
+  <div class="topright">
+    <div class="lang" role="group" aria-label="idioma">
+      <button data-lang="es" class="lang-btn on" aria-pressed="true">ES</button>
+      <button data-lang="en" class="lang-btn" aria-pressed="false">EN</button>
+    </div>
+    <button class="ghost" onclick="openSettings()" aria-label="Ajustes" title="Ajustes">⚙︎ Ajustes</button>
+    <button class="cta" onclick="openBid()" data-i18n="cta.bid">Pujar ahora</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 data-i18n="hero.h1">El ranking <span class="grad">que se compra</span></h1>
+  <p class="sub" data-i18n="hero.sub">Paga por aparecer más arriba. Si alguien puja más, te supera. Cada 30 días el ranking se reinicia y todos vuelven a empezar.</p>
+  <div class="countdown mono" id="countdown">—</div>
+</section>
+
+<section class="bote">
+  <div class="bote-card">
+    <div class="l" data-i18n="bote.l1">Bote acumulado</div>
+    <div class="v mono" id="bTotal">$0</div>
+    <div class="h" data-i18n="bote.h1">total pujado este periodo</div>
+  </div>
+  <div class="bote-card">
+    <div class="l" data-i18n="bote.l2">Reinicio en</div>
+    <div class="v mono" id="bDays">—</div>
+    <div class="h" data-i18n="bote.h2">días hasta el cierre</div>
+  </div>
+  <div class="bote-card demo">
+    <div class="l" data-i18n="bote.l3">Estado</div>
+    <div class="v" data-i18n="bote.v3">DEMO</div>
+    <div class="h" data-i18n="bote.h3">sin cobros reales</div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <h2 data-i18n="how.h2">¿Cómo funciona?</h2>
+  <p class="how-lead" data-i18n="how.lead">Cuatro pasos. Sin cajas sorpresas. Sin sorteos. Sin repartir dinero.</p>
+  <div class="how-grid">
+    <article class="how-card">
+      <div class="how-num">1</div>
+      <h3 data-i18n="how.c1h">Pujas desde 2 $</h3>
+      <p data-i18n="how.c1p">Elige una cantidad entre 2 y 500 dólares en los chips. En este modo demo no cobramos nada.</p>
+    </article>
+    <article class="how-card">
+      <div class="how-num">2</div>
+      <h3 data-i18n="how.c2h">Tu dinero, tu puesto</h3>
+      <p data-i18n="how.c2p">La cantidad que pagas decide tu posición. A mayor puja, más arriba en el ranking.</p>
+    </article>
+    <article class="how-card">
+      <div class="how-num">3</div>
+      <h3 data-i18n="how.c3h">Si alguien puja más, bajas</h3>
+      <p data-i18n="how.c3p">El ranking se actualiza al instante. Tu posición cambia en cuanto otra entrada supere tu puja.</p>
+    </article>
+    <article class="how-card">
+      <div class="how-num">4</div>
+      <h3 data-i18n="how.c4h">Reset cada 30 días</h3>
+      <p data-i18n="how.c4p">El ranking se reinicia y vuelve a cero periódicamente. La visibilidad no es permanente.</p>
+    </article>
+  </div>
+  <p class="how-foot">
+    <span data-i18n="how.faqA">¿Quieres saber más?</span>
+    <a href="./como-funciona.html" data-i18n="how.faqL">Lee la guía completa</a> ·
+    <a href="./acuerdo-usuario.html" data-i18n="how.termsL">Acuerdo de usuario</a> ·
+    <a href="./aviso-legal.html" data-i18n="how.legalL">Aviso legal</a>
+  </p>
+</section>
+
+<main class="wrap">
+  <section class="board">
+    <div class="board-head">
+      <h2 data-i18n="board.h2">🏆 Ranking actual</h2>
+      <span class="hint mono" data-i18n="board.hint">ordenado por puja · reinicio cada 30 días</span>
+    </div>
+    <div class="rows" id="rows"></div>
+    <p class="board-note" id="boardNote">
+      <span data-i18n="board.note">Las filas marcadas con la insignia TÚ son las pujas que has añadido en este navegador. Si activas Supabase Realtime desde el panel de ajustes, todas las personas conectadas ven las pujas en tiempo real.</span>
+    </p>
+
+    <section class="activity">
+      <h3 data-i18n="act.h3">Actividad reciente (tiempo real)</h3>
+      <ul class="act feed" id="actFeed"></ul>
+    </section>
+  </section>
+
+  <aside class="side">
+    <div class="card legal">
+      <h3><span class="ico">⚖️</span><span data-i18n="side.legal"> Estado legal</span></h3>
+      <p data-i18n="side.legal.body">RankLOL en modo demo <b>no cobra ni reparte premios</b>. Es un servicio publicitario de pago por presencia, sin componente de azar. Lee nuestro <a href="./aviso-legal.html">aviso legal</a> y la <a href="./politica-privacidad.html">política de privacidad</a>.</p>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="side.trend">🔥 Más vistas</h3>
+      <ul class="trend" id="trend"></ul>
+    </div>
+
+    <div class="card">
+      <h3 data-i18n="side.act">⚡ Última actividad</h3>
+      <ul class="act" id="act"></ul>
+    </div>
+
+    <div class="card contact">
+      <h3 data-i18n="side.contact">📩 ¿Hablamos?</h3>
+      <p data-i18n="side.contact.body">¿Quieres pujar por una posición, patrocinar la cabecera o tienes dudas legales?</p>
+      <a class="contactlink" href="./contacto.html" data-i18n="side.contactCta">Ir a la página de contacto</a>
+    </div>
+
+    <div class="card status">
+      <h3>🔌 Estado del backend</h3>
+      <p data-i18n="side.statusBody">Esta web vive en GitHub Pages (estática). Para que las pujas se sincronicen entre dispositivos, abre los <a href="#" onclick="openSettings();return false">Ajustes</a> y conecta tu proyecto gratuito de Supabase.</p>
+      <p style="margin-top:6px" id="statusLine" class="status-line">—</p>
+    </div>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span data-i18n="foot.copy">© RankLOL · Ranking pay-to-rank para apps indie y herramientas de IA.</span>
+  <span>
+    <a href="./como-funciona.html" data-i18n="foot.how">Cómo funciona</a> ·
+    <a href="./terminos.html" data-i18n="foot.terms">Términos</a> ·
+    <a href="./acuerdo-usuario.html" data-i18n="foot.agreement">Acuerdo de usuario</a> ·
+    <a href="./aviso-legal.html" data-i18n="foot.legal">Aviso legal</a> ·
+    <a href="./politica-privacidad.html" data-i18n="foot.privacy">Privacidad</a> ·
+    <a href="./politica-cookies.html" data-i18n="foot.cookies">Cookies</a> ·
+    <a href="./contacto.html" data-i18n="foot.contact">Contacto</a>
+  </span>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-box">
+    <button class="x" onclick="closeBid()" aria-label="cerrar">✕</button>
+    <h2 data-i18n="modal.h2">Sube en el ranking</h2>
+    <p class="muted" data-i18n="modal.muted">Tu puja decide tu posición. La cantidad mínima es de 2 dólares estadounidenses.</p>
+
+    <label class="lbl" data-i18n="modal.l1">Nombre de tu app</label>
+    <input id="fName" maxlength="40">
+
+    <label class="lbl" data-i18n="modal.l2">URL pública</label>
+    <input id="fUrl" maxlength="80" placeholder="https://mi-app.com">
+
+    <label class="lbl" data-i18n="modal.l3">Descripción en una línea</label>
+    <textarea id="fDesc" maxlength="140" rows="2" placeholder="Una línea que explique tu producto"></textarea>
+
+    <div class="lbl" data-i18n="modal.l4">Cantidad a pujar (USD)</div>
+    <div class="chips" id="chips"></div>
+
+    <div class="preview mono" id="preview">—</div>
+
+    <button class="cta big" onclick="submitBid()" data-i18n="modal.cta">Registrar puja</button>
+
+    <p class="fine" data-i18n="modal.fine">En producción, este botón abre Stripe Checkout y procesa el pago. En modo demo, la puja se guarda en este navegador y, si activas Supabase desde los ajustes, también se publica para todos los usuarios conectados. Consulta el <a href="./aviso-legal.html">aviso legal</a> y el <a href="./acuerdo-usuario.html">acuerdo de usuario</a> antes de usar.</p>
+  </div>
+</div>
+
+<div class="modal" id="settings" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-box">
+    <button class="x" onclick="closeSettings()" aria-label="cerrar">✕</button>
+    <h2>Ajustes</h2>
+    <p class="muted">Configura aquí la URL y la clave pública de tu proyecto Supabase para activar la sincronización realtime entre dispositivos. Las claves solo se guardan en tu navegador (localStorage) y nunca se suben al repositorio público de GitHub Pages.</p>
+
+    <label class="lbl">Project URL</label>
+    <input id="cfgUrl" placeholder="https://xxxx.supabase.co">
+
+    <label class="lbl">Anon public key</label>
+    <input id="cfgKey" placeholder="eyJhbGciOi...">
+
+    <label class="lbl">Nombre del operador</label>
+    <input id="cfgName" placeholder="Tu nombre o razón social">
+
+    <label class="lbl">Correo de contacto</label>
+    <input id="cfgEmail" type="email" placeholder="tu@correo.com">
+
+    <label class="lbl">URL base del sitio</label>
+    <input id="cfgOrigin" placeholder="https://usuario.github.io/ranklol/">
+
+    <div class="settings-actions">
+      <button class="cta" onclick="saveSettings()">Guardar y conectar</button>
+      <button class="ghost" onclick="testSettings()">Probar conexión</button>
+      <button class="ghost danger" onclick="clearSettings()">Borrar claves</button>
+    </div>
+    <p id="cfgStatus" class="cfg-status" style="display:none"></p>
+
+    <p class="fine">Pasos detallados en <code>README.md</code>. Si no quieres sincronizar entre dispositivos, cierra este panel y sigue pujando: las pujas se guardarán solo en este navegador.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="./assets/seed.js"></script>
+<script src="./assets/i18n.js"></script>
+<script src="./assets/realtime.js"></script>
+<script src="./assets/settings.js"></script>
+<script src="./assets/app.js"></script>
+</body>
+</html>

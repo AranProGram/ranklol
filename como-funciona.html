@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo funciona · RankLOL</title>
+<link rel="stylesheet" href="./assets/styles.css">
+<style>.page{position:relative;z-index:1;max-width:880px;margin:30px auto;padding:0 20px 40px}.page h1{font-size:clamp(28px,5vw,40px);letter-spacing:-.5px;line-height:1.15}.page h2{font-size:20px;margin-top:28px;color:var(--green)}.page p{margin-top:10px;color:var(--muted);line-height:1.65;font-size:15px}.page ul,.page ol{margin-top:10px;color:var(--muted);padding-left:22px;line-height:1.7}.page li b{color:var(--text)}.page .cta{display:inline-block;margin-top:18px}.page .qa{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px;margin-top:18px}.page .qa h3{font-size:16px;color:var(--text);margin-bottom:6px}.page .qa p{margin-top:0}.cr{font-size:13px;color:var(--muted);margin-bottom:14px}.cr a{color:var(--green);text-decoration:underline}.back{display:inline-block;margin-top:18px;color:var(--green);text-decoration:underline}.topbar-bg{position:relative;z-index:1;padding:14px 20px;background:rgba(7,7,13,.85);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}</style>
+</head>
+<body>
+<div class="topbar-bg">
+  <a class="logo" href="./index.html">RANK<span>LOL</span><span class="dot">.lol</span></a>
+  <span class="lang"><a class="lang-btn on" href="./como-funciona.html">ES</a> <a class="lang-btn" href="./como-funciona.html?lang=en">EN</a></span>
+</div>
+<article class="page">
+  <p class="cr"><a href="./index.html">← Inicio</a></p>
+  <h1>Cómo funciona RankLOL</h1>
+  <p>RankLOL es un directorio pay-to-rank para apps indie y herramientas de IA. Pagas una cantidad y tu entrada aparece más arriba en el ranking. Cuando alguien puja más, te supera. Cada 30 días el ranking se reinicia y todos vuelven a empezar. No hay sorteos, no hay bote repartido en metálico y no hay azar: pagas por visibilidad, igual que se paga un banner o un post patrocinado.</p>
+  <h2>1) Pujas desde 2 $</h2>
+  <p>Dentro del modal de puja verás chips con los importes más habituales: 2, 5, 10, 25, 50, 100, 250 y 500. Pulsa el que prefieras y verás en qué posición quedaría tu entrada. Mientras RankLOL esté en modo demo, al pulsar <em>Registrar puja</em> no se cobra nada: la puja se guarda en este navegador. Si activas Supabase desde el panel de <em>Ajustes</em> de la página principal, la puja se publica también para todos los usuarios conectados.</p>
+  <h2>2) Tu dinero, tu puesto</h2>
+  <p>El ranking se ordena de mayor a menor puja. La entrada que más haya pagado en el periodo aparece en la posición #1. Cuando activemos los cobros reales con Stripe Checkout, la cantidad que pagues será exactamente la que decida tu posición. Stripe retiene alrededor de 2,9 % + 0,25 € por transacción; el resto cubre hosting y margen del operador.</p>
+  <h2>3) Si alguien puja más, bajas</h2>
+  <p>El ranking es dinámico. Si una nueva entrada supera tu puja, la tabla se reordena al instante. Tanto tu navegador como cualquier otro conectado al backend de Supabase verá la nueva posición sin recargar la página.</p>
+  <h2>4) Reset cada 30 días</h2>
+  <p>Al cabo de 30 días el ranking se reinicia por completo. Esto significa:<br>
+    <b>a) Nadie asegura permanencia indefinida</b> en una posición.<br>
+    <b>b) El volumen de pujas tiende a repetirse</b> cada ciclo, así que los mejores puestos suelen revalidarse.<br>
+    <b>c) Si te interesa una presencia estable</b>, planifica pujar también en los siguientes reinicios.</p>
+
+  <div class="qa"><h3>¿Cuánto tarda en verse mi puja en otros navegadores?</h3><p>Si has pegado tu URL y la anon key de Supabase en el panel de Ajustes desde la home, la propagación es prácticamente instantánea (latencia típica: 200–500 ms). Si no, la puja queda solo en tu navegador.</p></div>
+  <div class="qa"><h3>¿Por qué no cobra de verdad todavía?</h3><p>Porque estamos validando el formato. Antes de cobrar dinero real, conviene hablar con un asesor fiscal y contar con los textos legales definitivos, que ya están listos como borradores: <a href="./terminos.html">términos</a>, <a href="./acuerdo-usuario.html">acuerdo de usuario</a>, <a href="./aviso-legal.html">aviso legal</a>, <a href="./politica-privacidad.html">privacidad</a> y <a href="./politica-cookies.html">cookies</a>.</p></div>
+  <div class="qa"><h3>¿Tiene algún componente de azar?</h3><p>No. Tu posición la decides tú con la cantidad que pagas. No hay ruletas, sorteos,抽奖s ni sistemas aleatorios. Por eso RankLOL no entra dentro de la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2011-9280">Ley 13/2011 de Regulación del Juego</a> en España.</p></div>
+
+  <a class="cta" href="./index.html" style="background:linear-gradient(90deg,var(--green),#00c46a);color:#04120b;font-weight:800;padding:11px 18px;border-radius:10px;text-decoration:none">Volver al ranking</a>
+</article>
+<footer class="foot">
+  <span>© RankLOL · Ranking pay-to-rank para apps indie y herramientas de IA.</span>
+  <span><a href="./contacto.html">Contacto</a> · <a href="./aviso-legal.html">Aviso legal</a> · <a href="./terminos.html">Términos</a></span>
+</footer>
+</body>
+</html>

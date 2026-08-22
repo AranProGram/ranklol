@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviso legal · RankLOL</title>
+<link rel="stylesheet" href="./assets/styles.css">
+<style>.page{position:relative;z-index:1;max-width:860px;margin:30px auto;padding:0 20px 40px}.page h1{font-size:clamp(26px,4.4vw,34px);letter-spacing:-.5px}.page h2{font-size:18px;margin-top:24px;color:var(--green)}.page p{color:var(--muted);line-height:1.65;margin-top:10px;font-size:14.5px}.page ul{color:var(--muted);padding-left:22px;line-height:1.7;font-size:14.5px}.cr{color:var(--muted);font-size:13px;margin-bottom:14px}.cr a{color:var(--green);text-decoration:underline}.box{background:rgba(255,210,63,.08);border:1px dashed var(--yellow);border-radius:8px;padding:10px 12px;color:var(--yellow);font-size:13px;margin-top:8px}table{width:100%;border-collapse:collapse;margin-top:10px}th,td{padding:8px 10px;border-bottom:1px solid var(--border);text-align:left;font-size:13px;color:var(--muted)}th{color:var(--green);text-transform:uppercase;letter-spacing:1px;font-size:11px}.topbar-bg{position:relative;z-index:1;padding:14px 20px;background:rgba(7,7,13,.85);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}</style>
+</head>
+<body>
+<div class="topbar-bg">
+  <a class="logo" href="./index.html">RANK<span>LOL</span><span class="dot">.lol</span></a>
+  <span class="lang"><a class="lang-btn on" href="./aviso-legal.html">ES</a> <a class="lang-btn" href="./aviso-legal.html?lang=en">EN</a></span>
+</div>
+<article class="page">
+  <p class="cr"><a href="./index.html">← Inicio</a></p>
+  <h1>Aviso legal</h1>
+  <p>El presente aviso legal regula el acceso y uso de la página web <strong>RankLOL</strong>. Al navegar por este sitio aceptas las condiciones aquí descritas. Antes de activar cobros reales en producción, este texto debería ser revisado por un profesional jurídico.</p>
+
+  <h2>1. Datos identificativos del titular</h2>
+  <div class="box">Como RankLOL es un proyecto hosteado en GitHub Pages, los datos identificativos del titular se facilitan en la <a href="./contacto.html">página de contacto</a>. Si despliegas esta web bajo tu marca propia, sustituye los marcadores de la página de contacto y del formulario por tus datos reales.</div>
+
+  <h2>2. Naturaleza del servicio</h2>
+  <p>RankLOL es un directorio <strong>pay-to-rank</strong>: pagas una cantidad por aparecer más arriba en una tabla pública, sin componente de azar, sin sorteos y sin repartir dinero. Mientras RankLOL no incluya sorteos, premios en metálico ni repartos a los mejores pujadores, queda fuera del ámbito de aplicación de la <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2011-9280">Ley 13/2011, de 27 de mayo, de regulación del juego</a> y, por tanto, de las competencias de la <a href="https://www.ordenacionjuego.es/">DGOJ</a>.</p>
+
+  <h2>3. Estado actual: modo demo</h2>
+  <p>El sitio está operativo en modo <strong>demo</strong>. Las pujas registradas durante la demo:</p>
+  <ul>
+    <li>se almacenan, por defecto, únicamente en tu navegador (<code>localStorage</code>);</li>
+    <li>no se cobran con tarjeta ni en ningún otro medio mientras <code>DEMO</code> siga activo;</li>
+    <li>si configuras Supabase desde el panel de Ajustes, también se publican en una base de datos compartida para todos los usuarios que abran esa misma instancia.</li>
+  </ul>
+
+  <h2>4. Hosting y proveedores</h2>
+  <p>Esta web se sirve como contenido estático desde <strong>GitHub Pages</strong> (<a href="https://docs.github.com/en/pages">documentación oficial</a>). El plan Pages es gratuito para repositorios públicos y respeta las páginas de marketing y sitios personales.</p>
+  <p>Si activas la sincronización realtime, los datos de pujas pasan por <strong>Supabase</strong> como base de datos y websockets. La <a href="https://supabase.com/privacy">política de privacidad de Supabase</a> aplica a ese tráfico.</p>
+  <p>Si más adelante activas cobros con <strong>Stripe Checkout</strong>, la pasarela de pago añade su propia [política de cookies y privacidad](https://stripe.com/privacy) sobre el dominio <code>checkout.stripe.com</code>.</p>
+
+  <h2>5. Limitación de responsabilidad</h2>
+  <p>RankLOL vende visibilidad. <strong>No garantiza clics, conversiones, ventas ni comisión de leads</strong>. La posición en el ranking depende exclusivamente de la cantidad pujada. El operador no se hace responsable de:</p>
+  <ul>
+    <li>interpretaciones erróneas de la información publicada en el sitio;</li>
+    <li>pérdidas derivadas del uso comercial de la posición alcanzada;</li>
+    <li>interrupciones temporales del servicio por mantenimiento, caídas del proveedor de base de datos (Supabase) o de la pasarela de pagos (Stripe).</li>
+  </ul>
+
+  <h2>6. Régimen fiscal del operador</h2>
+  <p>Los ingresos que obtenga el operador por las pujas tributan como actividad económica. Si resides en España, los pasos relevantes son:</p>
+  <ul>
+    <li>Alta en el <a href="https://sede.agenciatributaria.gob.es/Sede/procedimientoini/G322.shtml">modelo 036 de la AEAT</a>.</li>
+    <li>Alta en el Régimen Especial de Trabajadores Autónomos (RETA), con <a href="https://www.infoautonomos.com/seguridad-social/tarifa-plana-autonomos/">tarifa plana</a> el primer año si cumples los requisitos.</li>
+    <li>Asesoramiento profesionalizado por una gestoría o un asesor fiscal.</li>
+  </ul>
+
+  <h2>7. Propiedad intelectual e industrial</h2>
+  <p>La marca RankLOL, el código y los textos originales del sitio pertenecen al operador. Las marcas, logotipos, imágenes y descripciones de las entradas de ranking subidas por terceros pertenecen a sus titulares. El operador se reserva el derecho de retirar cualquier entrada que vulnere derechos de terceros.</p>
+
+  <h2>8. Datos personales</h2>
+  <p>RankLOL no recoge nombre, correo electrónico ni teléfono del usuario. El único dato identificativo es el nombre y la URL que cada pujador introduce voluntariamente. Para más información, consulta la <a href="./politica-privacidad.html">política de privacidad</a>.</p>
+
+  <h2>9. Ley aplicable y jurisdicción</h2>
+  <p>Las relaciones entre el operador y los usuarios se rigen por la legislación española y europea aplicable. Para cualquier controversia, las partes se someten a los Juzgados y Tribunales de la ciudad del operador, salvo que la normativa procesal disponga otra cosa.</p>
+
+  <h2>10. Datos del operador que se muestran en la web</h2>
+  <table>
+    <tr><th>Campo</th><th>Valor</th></tr>
+    <tr><td>Nombre / Razón social</td><td id="opName">[Pendiente: configurar en /contacto desde Ajustes]</td></tr>
+    <tr><td>NIF / CIF</td><td id="opCif">[Pendiente]</td></tr>
+    <tr><td>Dirección</td><td id="opAddr">[Pendiente]</td></tr>
+    <tr><td>Correo</td><td id="opEmail">[Pendiente]</td></tr>
+  </table>
+
+  <p style="margin-top:18px"><em>Texto en borrador. Última revisión: agosto 2026. Antes de operar con cobros reales, validarlo con un abogado.</em></p>
+</article>
+<footer class="foot">
+  <span>© RankLOL · Ranking pay-to-rank para apps indie y herramientas de IA.</span>
+  <span><a href="./contacto.html">Contacto</a> · <a href="./terminos.html">Términos</a> · <a href="./acuerdo-usuario.html">Acuerdo de usuario</a></span>
+</footer>
+<script src="./assets/settings.js"></script>
+<script>
+(function(){
+  const cfg = window.RANKLOL_SETTINGS ? window.RANKLOL_SETTINGS.get() : {};
+  if (cfg.operatorName) document.getElementById('opName').textContent = cfg.operatorName;
+  if (cfg.operatorEmail) document.getElementById('opEmail').innerHTML = '<a href="mailto:' + cfg.operatorEmail + '">' + cfg.operatorEmail + '</a>';
+})();
+</script>
+</body>
+</html>

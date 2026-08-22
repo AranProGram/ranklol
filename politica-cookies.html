@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de cookies · RankLOL</title>
+<link rel="stylesheet" href="./assets/styles.css">
+<style>.page{position:relative;z-index:1;max-width:860px;margin:30px auto;padding:0 20px 40px}.page h1{font-size:clamp(26px,4.4vw,34px);letter-spacing:-.5px}.page h2{font-size:18px;margin-top:24px;color:var(--green)}.page p{color:var(--muted);line-height:1.7;margin-top:10px;font-size:14.5px}.page ul{color:var(--muted);padding-left:22px;line-height:1.7;font-size:14.5px}table{width:100%;border-collapse:collapse;margin-top:10px}th,td{padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;font-size:13px;color:var(--muted)}th{color:var(--green);text-transform:uppercase;letter-spacing:1px;font-size:11px}.cr{color:var(--muted);font-size:13px;margin-bottom:14px}.cr a{color:var(--green);text-decoration:underline}.topbar-bg{position:relative;z-index:1;padding:14px 20px;background:rgba(7,7,13,.85);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}code{background:var(--panel2);padding:2px 6px;border-radius:6px;font-size:12px;color:var(--green)}</style>
+</head>
+<body>
+<div class="topbar-bg">
+  <a class="logo" href="./index.html">RANK<span>LOL</span><span class="dot">.lol</span></a>
+  <span class="lang"><a class="lang-btn on" href="./politica-cookies.html">ES</a> <a class="lang-btn" href="./politica-cookies.html?lang=en">EN</a></span>
+</div>
+<article class="page">
+  <p class="cr"><a href="./index.html">← Inicio</a></p>
+  <h1>Política de cookies</h1>
+  <p>RankLOL utiliza únicamente cookies y almacenamiento local estrictamente necesarios para su funcionamiento. No usamos cookies publicitarias, de seguimiento ni de terceros con fines comerciales.</p>
+
+  <h2>1. Almacenamiento local del navegador</h2>
+  <table>
+    <tr><th>Clave en localStorage</th><th>Finalidad</th><th>Duración</th></tr>
+    <tr><td><code>ranklol.bids.local</code></td><td>Guardar las pujas demo que has hecho mientras el modo demo esté activo</td><td>30 días</td></tr>
+    <tr><td><code>ranklol.roundStart</code></td><td>Marca temporal del inicio del ciclo de 30 días</td><td>30 días</td></tr>
+    <tr><td><code>ranklol.myLocal</code></td><td>Lista de identificadores de tus propias pujas para mostrar la insignia TÚ</td><td>30 días</td></tr>
+    <tr><td><code>ranklol.lang</code></td><td>Idioma preferido (es/en)</td><td>Persistente hasta que lo cambies</td></tr>
+    <tr><td><code>ranklol.cfg.supabaseUrl</code></td><td>URL de tu proyecto Supabase (sólo si la introduces en Ajustes)</td><td>Persistente hasta que la borres</td></tr>
+    <tr><td><code>ranklol.cfg.supabaseAnonKey</code></td><td>Anon public key de Supabase (sólo si la introduces en Ajustes)</td><td>Persistente hasta que la borres</td></tr>
+    <tr><td><code>ranklol.cfg.operatorEmail</code></td><td>Correo del operador (para mostrarlo en el contacto y en la tabla del aviso legal)</td><td>Persistente hasta que la borres</td></tr>
+    <tr><td><code>ranklol.cfg.operatorName</code></td><td>Nombre del operador</td><td>Persistente hasta que la borres</td></tr>
+  </table>
+
+  <h2>2. Cookies emitidas por Supabase</h2>
+  <p>Si activas Supabase desde el panel de Ajustes de la home, Supabase Stores emite los cookies que necesite para mantener la sesión realtime y el rate limit. Revisa su [política de cookies](https://supabase.com/privacy).</p>
+
+  <h2>3. Cookies emitidas por Stripe</h2>
+  <p>Si activas el modo de pago, Stripe Checkout emite cookies en su dominio <code>checkout.stripe.com</code>. RankLOL no controla esas cookies. Más info en [stripe.com/cookies](https://stripe.com/cookies).</p>
+
+  <h2>4. ¿Cómo rechazar o eliminar el almacenamiento local?</h2>
+  <p>Puedes borrar el almacenamiento local desde la configuración de tu navegador:</p>
+  <ul>
+    <li>Chrome: Configuración → Privacidad y seguridad → Borrar datos de navegación.</li>
+    <li>Safari: Preferencias → Privacidad → Gestionar datos de sitios web.</li>
+    <li>Firefox: Preferencias → Privacidad y seguridad → Cookies y datos del sitio.</li>
+  </ul>
+  <p>Si rechazas todo el almacenamiento, RankLOL seguirá funcionando pero perderá la persistencia local de tus pujas demo.</p>
+
+  <h2>5. Cambios en esta política</h2>
+  <p>Cualquier cambio se publica en esta misma URL.</p>
+  <p><em>Última revisión: agosto 2026.</em></p>
+</article>
+<footer class="foot">
+  <span>© RankLOL · Ranking pay-to-rank para apps indie y herramientas de IA.</span>
+  <span><a href="./contacto.html">Contacto</a> · <a href="./aviso-legal.html">Aviso legal</a> · <a href="./terminos.html">Términos</a></span>
+</footer>
+</body>
+</html>

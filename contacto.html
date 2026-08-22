@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto · RankLOL</title>
+<link rel="stylesheet" href="./assets/styles.css">
+<style>.page{position:relative;z-index:1;max-width:880px;margin:30px auto;padding:0 20px 40px}.page h1{font-size:clamp(28px,5vw,40px);letter-spacing:-.5px}.info-grid{display:grid;grid-template-columns:160px 1fr;gap:14px;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:18px}.info-grid .l{color:var(--muted);font-size:13px;letter-spacing:1px;text-transform:uppercase}.info-grid .v{font-size:15px;color:var(--text)}.info-grid .v a{color:var(--green);text-decoration:underline}.cr{color:var(--muted);font-size:13px;margin-bottom:14px}.cr a{color:var(--green);text-decoration:underline}.form-card{background:var(--panel);border:1px solid var(--green);border-radius:14px;padding:22px;margin-top:22px}.form-card h2{font-size:18px;color:var(--green);margin-bottom:8px}.form-card label{display:block;font-size:12px;letter-spacing:1px;color:var(--muted);margin:10px 0 4px;text-transform:uppercase}.form-card input,.form-card textarea{width:100%;background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:11px 12px;font-size:14px;font-family:inherit}.form-card input:focus,.form-card textarea:focus{outline:none;border-color:var(--green)}.form-card textarea{min-height:120px;resize:vertical}.form-card button{margin-top:12px;background:linear-gradient(90deg,var(--green),#00c46a);color:#04120b;font-weight:800;border:none;padding:11px 18px;border-radius:10px;cursor:pointer}</style>
+</head>
+<body>
+<div class="topbar-bg" style="position:relative;z-index:1;padding:14px 20px;background:rgba(7,7,13,.85);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+  <a class="logo" href="./index.html">RANK<span>LOL</span><span class="dot">.lol</span></a>
+  <span class="lang"><a class="lang-btn on" href="./contacto.html">ES</a> <a class="lang-btn" href="./contacto.html?lang=en">EN</a></span>
+</div>
+<article class="page">
+  <p class="cr"><a href="./index.html">← Inicio</a></p>
+  <h1>Contacto</h1>
+  <p>¿Quieres pujar por una posición, patrocinar la cabecera, reportar una entrada que incumple nuestras normas o resolver dudas legales? Escríbenos por cualquiera de estos canales.</p>
+
+  <div class="info-grid"><div class="l">Correo</div><div class="v" id="cEmail"><a href="mailto:h3ro@example.com">h3ro@example.com</a></div></div>
+  <div class="info-grid"><div class="l">Operador</div><div class="v" id="cOp">[Tu nombre o razón social]</div></div>
+  <div class="info-grid"><div class="l">NIF/CIF</div><div class="v" id="cCif">[Tu NIF/CIF]</div></div>
+  <div class="info-grid"><div class="l">Dirección</div><div class="v" id="cAddr">[Tu dirección completa]</div></div>
+
+  <div class="form-card">
+    <h2>Escríbenos directamente</h2>
+    <form id="cf" onsubmit="event.preventDefault(); send();">
+      <label>Tu nombre</label>
+      <input id="cfName" required maxlength="80">
+      <label>Tu correo</label>
+      <input id="cfEmail" type="email" required maxlength="120">
+      <label>Asunto</label>
+      <input id="cfSubject" required maxlength="120">
+      <label>Mensaje</label>
+      <textarea id="cfBody" required maxlength="2000"></textarea>
+      <button type="submit">Enviar</button>
+      <p id="cfStatus" style="margin-top:10px;color:var(--green);font-size:13px;display:none"></p>
+    </form>
+  </div>
+
+  <p style="margin-top:18px">Antes de escribirnos también puedes consultar la <a href="./como-funciona.html">guía de uso</a>, los <a href="./terminos.html">términos</a>, el <a href="./acuerdo-usuario.html">acuerdo de usuario</a> y el <a href="./aviso-legal.html">aviso legal</a>.</p>
+</article>
+<footer class="foot">
+  <span>© RankLOL · Ranking pay-to-rank para apps indie y herramientas de IA.</span>
+  <span><a href="./contacto.html">Contacto</a> · <a href="./aviso-legal.html">Aviso legal</a> · <a href="./terminos.html">Términos</a></span>
+</footer>
+<script src="./assets/settings.js"></script>
+<script>
+(function(){
+  const cfg = window.RANKLOL_SETTINGS ? window.RANKLOL_SETTINGS.get() : {};
+  const fmt = (v) => v || (cfg.operatorEmail ? cfg.operatorEmail : '[pendiente de configurar en .github README]');
+  const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  set('cEmail', cfg.operatorEmail || 'h3ro@example.com');
+  set('cOp', cfg.operatorName || '[Tu nombre o razón social]');
+  set('cCif', '[Tu NIF/CIF]');
+  set('cAddr', '[Tu dirección completa]');
+
+  window.send = function() {
+    const email = cfg.operatorEmail || 'h3ro@example.com';
+    const subject = encodeURIComponent('[RankLOL] ' + (document.getElementById('cfSubject').value || 'Consulta'));
+    const body = encodeURIComponent(
+      'Nombre: ' + document.getElementById('cfName').value + '\n' +
+      'Correo: ' + document.getElementById('cfEmail').value + '\n\n' +
+      document.getElementById('cfBody').value
+    );
+    const s = document.getElementById('cfStatus');
+    s.style.display = 'block';
+    s.textContent = 'Hemos preparado un correo en tu cliente. Si no se abre, escríbenos directamente a ' + email + '.';
+    window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
+  };
+})();
+</script>
+</body>
+</html>
