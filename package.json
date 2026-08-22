@@ -1,8 +1,0 @@
-{
-  "name": "ranklol",
-  "version": "4.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": { "dev": "npx serve ." },
-  "description": "Pay-to-rank leaderboard bilingüe ES/EN con sincronización realtime vía Supabase (modo demo sin cobros)."
-}
