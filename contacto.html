@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto · RankLOL</title>
+<meta name="description" content="Cómo contactar con RankLOL: correo, teléfono y razones para escribirnos.">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .page{position:relative;z-index:1;max-width:880px;margin:30px auto;padding:0 20px 40px}
+  .page h1{font-size:clamp(28px,5vw,40px);letter-spacing:-.5px}
+  .card-info{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:18px;display:grid;grid-template-columns:160px 1fr;gap:14px}
+  .card-info .l{color:var(--muted);font-size:13px;letter-spacing:1px;text-transform:uppercase}
+  .card-info .v{font-size:15px;color:var(--text)}
+  .card-info .v a{color:var(--green);text-decoration:underline}
+  .crumbs{color:var(--muted);font-size:13px;margin-bottom:14px}
+  .crumbs a{color:var(--green);text-decoration:underline}
+  .page p{color:var(--muted);line-height:1.7;margin-top:10px}
+  .form-card{background:var(--panel);border:1px solid var(--green);border-radius:14px;padding:22px;margin-top:22px}
+  .form-card h2{font-size:18px;color:var(--green);margin-bottom:8px}
+  .form-card label{display:block;font-size:12px;letter-spacing:1px;color:var(--muted);margin:10px 0 4px;text-transform:uppercase}
+  .form-card input,.form-card textarea{width:100%;background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:11px 12px;font-size:14px;font-family:inherit}
+  .form-card input:focus,.form-card textarea:focus{outline:none;border-color:var(--green)}
+  .form-card textarea{min-height:120px;resize:vertical}
+  .form-card button{margin-top:12px;background:linear-gradient(90deg,var(--green),#00c46a);color:#04120b;font-weight:800;border:none;padding:11px 18px;border-radius:10px;cursor:pointer}
+  .back{display:inline-block;margin-top:18px;color:var(--green);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<header class="warnbar">
+  <span>⚠️</span>
+  <span>Modo demo. Las pujas no se cobran y se almacenan de forma local hasta que actives el backend.</span>
+  <a href="como-funciona.html">¿Cómo funciona?</a>
+  <button class="warn-x" onclick="this.parentElement.remove()" aria-label="cerrar">✕</button>
+</header>
+
+<header class="topbar">
+  <a class="logo" href="index.html">RANK<span>LOL</span><span class="dot">.lol</span></a>
+  <nav class="nav">
+    <a href="como-funciona.html">Cómo funciona</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="terminos.html">Términos</a>
+    <a href="aviso-legal.html">Aviso legal</a>
+  </nav>
+  <div class="topright">
+    <div class="lang" role="group" aria-label="idioma">
+      <a href="contacto.html?lang=es" class="lang-btn on">ES</a>
+      <a href="contacto.html?lang=en" class="lang-btn">EN</a>
+    </div>
+  </div>
+</header>
+
+<article class="page">
+  <p class="crumbs"><a href="index.html">← Inicio</a></p>
+  <h1>Contacto</h1>
+  <p>¿Quieres pujar por una posición en el ranking, patrocinar la cabecera, reportar una entrada que incumple nuestras normas o resolver dudas legales? Escríbenos por cualquiera de estos canales. Responderemos en un plazo razonable, en horario laboral europeo.</p>
+
+  <div class="card-info"><div class="l">Correo</div><div class="v" id="cEmail">[TU_EMAIL]</div></div>
+  <div class="card-info"><div class="l">Teléfono</div><div class="v" id="cPhone">[TU_TELEFONO]</div></div>
+  <div class="card-info"><div class="l">Operador</div><div class="v" id="cOp">[TU_NOMBRE_O_RAZON_SOCIAL]</div></div>
+  <div class="card-info"><div class="l">CIF/NIF</div><div class="v" id="cCif">[TU_NIF_CIF]</div></div>
+  <div class="card-info"><div class="l">Dirección</div><div class="v" id="cAddr">[TU_DIRECCION]</div></div>
+  <div class="card-info"><div class="l">Twitter / X</div><div class="v" id="cTw">[TU_TWITTER]</div></div>
+  <div class="card-info"><div class="l">LinkedIn</div><div class="v" id="cLi">[TU_LINKEDIN]</div></div>
+
+  <div class="form-card">
+    <h2>Escríbenos directamente</h2>
+    <form id="contactForm" onsubmit="event.preventDefault(); sendMail();">
+      <label for="cfName">Tu nombre</label>
+      <input id="cfName" required maxlength="80" placeholder="Cómo quieres que te llamemos">
+      <label for="cfEmail">Tu correo</label>
+      <input id="cfEmail" type="email" required maxlength="120" placeholder="tu@correo.com">
+      <label for="cfSubject">Asunto</label>
+      <input id="cfSubject" required maxlength="120" placeholder="Patrocinio, puja, duda legal, prensa…">
+      <label for="cfBody">Mensaje</label>
+      <textarea id="cfBody" required maxlength="2000" placeholder="Cuéntanos con detalle. Te respondemos por correo."></textarea>
+      <button type="submit">Enviar</button>
+      <p id="cfStatus" style="margin-top:10px;color:var(--green);font-size:13.5px;display:none"></p>
+    </form>
+  </div>
+
+  <p>Antes de escribirnos también puedes consultar la <a href="como-funciona.html">guía de uso</a>, los <a href="terminos.html">términos</a>, el <a href="acuerdo-usuario.html">acuerdo de usuario</a> y el <a href="aviso-legal.html">aviso legal</a>.</p>
+
+  <a class="back" href="index.html">Volver al ranking</a>
+</article>
+
+<footer class="foot">
+  <span>© RankLOL · Ranking pay-to-rank para apps indie y herramientas de IA.</span>
+  <span>
+    <a href="como-funciona.html">Cómo funciona</a> ·
+    <a href="terminos.html">Términos</a> ·
+    <a href="acuerdo-usuario.html">Acuerdo de usuario</a> ·
+    <a href="aviso-legal.html">Aviso legal</a> ·
+    <a href="politica-privacidad.html">Privacidad</a> ·
+    <a href="politica-cookies.html">Cookies</a> ·
+    <a href="contacto.html">Contacto</a>
+  </span>
+</footer>
+
+<script src="config.js"></script>
+<script>
+  (function(){
+    var c = window.RANKLOL_CONFIG || {};
+    document.getElementById('cEmail').innerHTML = '<a href="mailto:'+(c.OPERATOR_EMAIL||'')+'">'+c.OPERATOR_EMAIL+'</a>';
+    document.getElementById('cPhone').textContent = c.OPERATOR_PHONE || '';
+    document.getElementById('cOp').textContent = c.OPERATOR_NAME || '';
+    document.getElementById('cCif').textContent = c.OPERATOR_CIF || '';
+    document.getElementById('cAddr').textContent = c.OPERATOR_ADDRESS || '';
+    document.getElementById('cTw').innerHTML = c.OPERATOR_TWITTER ? '<a href="https://twitter.com/'+(c.OPERATOR_TWITTER.replace('@',''))+'" target="_blank" rel="noopener nofollow">'+c.OPERATOR_TWITTER+'</a>' : '';
+    document.getElementById('cLi').innerHTML = c.OPERATOR_LINKEDIN ? '<a href="'+c.OPERATOR_LINKEDIN+'" target="_blank" rel="noopener nofollow">'+c.OPERATOR_LINKEDIN+'</a>' : '';
+    window.sendMail = function(){
+      var email = (window.RANKlol_CONFIG || c).OPERATOR_EMAIL || 'tu-correo@dominio.com';
+      var body = encodeURIComponent(
+        'Nombre: '+(document.getElementById('cfName').value)+'\n'+
+        'Correo: '+(document.getElementById('cfEmail').value)+'\n\n'+
+        document.getElementById('cfBody').value
+      );
+      var subject = encodeURIComponent('[RankLOL] '+(document.getElementById('cfSubject').value||'Consulta'));
+      var s = document.getElementById('cfStatus');
+      s.style.display='block';
+      s.textContent = 'Hemos preparado un correo en tu cliente. Si no se abre, escríbenos directamente a ' + email + '.';
+      window.location.href = 'mailto:'+email+'?subject='+subject+'&body='+body;
+    };
+  })();
+</script>
+
+</body>
+</html>

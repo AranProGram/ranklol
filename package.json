@@ -1,8 +1,8 @@
 {
   "name": "ranklol",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": true,
   "type": "module",
   "scripts": { "dev": "npx serve ." },
-  "description": "Pay-to-rank leaderboard bilingüe para apps indie & AI — modo demo (sin cobros)."
+  "description": "Pay-to-rank leaderboard bilingüe ES/EN con sincronización realtime vía Supabase (modo demo sin cobros)."
 }

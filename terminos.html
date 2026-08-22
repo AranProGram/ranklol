@@ -1,25 +1,94 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Términos · RankLOL</title>
-<style>body{font-family:'Segoe UI',system-ui,sans-serif;background:#07070d;color:#ececf4;max-width:780px;margin:40px auto;padding:24px;line-height:1.6}a{color:#00ff88}h1{font-size:30px;margin-bottom:14px}h2{font-size:20px;margin-top:30px;color:#7c5cff}hr{border:none;border-top:1px solid #1e1e30;margin:20px 0}</style>
-</head><body><a href="/">← volver</a><h1>Términos de uso</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Términos · RankLOL</title>
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .page{position:relative;z-index:1;max-width:860px;margin:30px auto;padding:0 20px 40px}
+  .page h1{font-size:clamp(26px,4.4vw,34px);letter-spacing:-.5px}
+  .page h2{font-size:18px;margin-top:24px;color:var(--green)}
+  .page p{color:var(--muted);line-height:1.7;margin-top:10px;font-size:14.5px}
+  .page ul{color:var(--muted);padding-left:22px;line-height:1.7;font-size:14.5px}
+  .page .crumb{color:var(--muted);font-size:13px;margin-bottom:14px}
+  .page .crumb a{color:var(--green);text-decoration:underline}
+  .back{display:inline-block;margin-top:18px;color:var(--green);text-decoration:underline}
+</style>
+</head>
+<body>
 
-<h2>1. Aceptación</h2>
-<p>Al usar RankLOL aceptas que tu puja, una vez confirmada por Stripe en producción, es <b>no reembolsable</b>. En modo demo no hay cobro y se puede volver a intentar.</p>
+<header class="warnbar">
+  <span>⚠️</span>
+  <span>Modo demo. Las pujas no se cobran y se almacenan de forma local hasta que actives el backend.</span>
+  <a href="como-funciona.html">¿Cómo funciona?</a>
+  <button class="warn-x" onclick="this.parentElement.remove()" aria-label="cerrar">✕</button>
+</header>
 
-<h2>2. Visibilidad</h2>
-<p>Tu entrada en el ranking arriba <b>no garantiza clicks, conversiones ni ventas</b>. Es un servicio publicitario. Comparamos tu posición con la de otras apps que también pagaron.</p>
+<header class="topbar">
+  <a class="logo" href="index.html">RANK<span>LOL</span><span class="dot">.lol</span></a>
+  <nav class="nav">
+    <a href="como-funciona.html">Cómo funciona</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="terminos.html">Términos</a>
+    <a href="aviso-legal.html">Aviso legal</a>
+  </nav>
+  <div class="topright">
+    <div class="lang"><a href="terminos.html?lang=es" class="lang-btn on">ES</a><a href="terminos.html?lang=en" class="lang-btn">EN</a></div>
+  </div>
+</header>
 
-<h2>3. Reset mensual</h2>
-<p>El ranking se resetea cada 30 días. Las posiciones quedan en blanco. Esto no es un compromiso de mantenimiento indefinido de un puesto.</p>
+<article class="page">
+  <p class="crumb"><a href="index.html">← Inicio</a></p>
+  <h1>Términos y condiciones de uso</h1>
+  <p>Estos términos regulan el uso de RankLOL. Al navegar por el sitio o registrar una puja, aceptas las condiciones aquí expuestas. Si no estás de acuerdo, por favor no uses el servicio.</p>
 
-<h2>4. Moderación</h2>
-<p>RankLOL puede retirar entradas etiquetadas como spam, contenido ilegal, phishing, scam, o que pretendan suplantar a marcas registradas.</p>
+  <h2>1. Aceptación</h2>
+  <p>El uso de RankLOL implica la aceptación plena de estos términos y de los textos legales vinculados: <a href="aviso-legal.html">aviso legal</a>, <a href="politica-privacidad.html">política de privacidad</a>, <a href="politica-cookies.html">política de cookies</a> y <a href="acuerdo-usuario.html">acuerdo de usuario</a>.</p>
 
-<h2>5. Modo demo</h2>
-<p>Durante el modo demo no se cobra dinero. Las pujas viven en <code>localStorage</code> del navegador y se borran tras 30 días o si limpias el caché.</p>
+  <h2>2. Descripción del servicio</h2>
+  <p>RankLOL ofrece un ranking público y editable, ordenado por la cantidad que cada entrada declara haber pujado. Mientras el modo <code>DEMO</code> esté activo, las pujas no se cobran y se almacenan de forma local. Cuando se desactive el modo demo, las pujas pasarán a procesarse con Stripe Checkout y se publicarán en tiempo real a través de Supabase Realtime.</p>
 
-<h2>6. Activación de cobros</h2>
-<p>Cuando abramos cobros con Stripe: el importe íntegro que pagas pasa a la cuenta del operador. Stripe retiene ~2,9% + 0,25 €. El resto cubre hosting y margen.</p>
+  <h2>3. Obligaciones del usuario</h2>
+  <ul>
+    <li>No introducir contenido ilegal, difamatorio, fraudulento o que vulnere derechos de terceros.</li>
+    <li>No suplantar la identidad de marcas o empresas existentes sin autorización.</li>
+    <li>No usar RankLOL para distribuir malware, phishing o estafas.</li>
+    <li>No manipular el sistema automatizadamente (bots, scraping masivo, generación sintética de pujas).</li>
+    <li>Cumplir con la <a href="acuerdo-usuario.html">acuerdo de usuario</a> y con la legislación vigente en tu país.</li>
+  </ul>
 
-<h2>7. Cancelación</h2>
-<p>Si en un momento dado decides que ya no quieres pagar visibilidad para tu app, simplemente deja de pujar las próximas rondas.</p>
-<hr><p style="color:#8a8aa3;font-size:13px"><a href="aviso-legal.html">Aviso legal</a> · Última revisión: agosto 2026</p></body></html>
+  <h2>4. Política de reembolsos</h2>
+  <p>Las pujas que se cobren en producción son <strong>no reembolsables</strong>, salvo error de cobro demostrable por parte del operador. Cada reset de 30 días el ranking vuelve a cero y tu presencia en el ranking siguiente requiere una nueva puja. Si en algún momento quieres cancelar tu posición futura, basta con no volver a pujar el siguiente ciclo.</p>
+
+  <h2>5. Moderación</h2>
+  <p>RankLOL puede retirar, sin previo aviso, entradas que incumplan estos términos o que reciban denuncias fundamentadas de derechos de marca. Esta decisión se comunica al correo de contacto que el usuario haya facilitado al subir su entrada.</p>
+
+  <h2>6. Suspensión del servicio</h2>
+  <p>El operador puede suspender el mantenimiento del ranking por motivos técnicos, legales o económicos. Si esto ocurre, te avisamos por los canales públicos (correo electrónico a los usuarios registrados, Twitter oficial y aviso en la propia home).</p>
+
+  <h2>7. Cambios en los términos</h2>
+  <p>Estos términos pueden actualizarse. La fecha de la última revisión aparece en el pie de página. Los cambios sustanciales se comunicarán por correo y tendrán un periodo de aviso razonable antes de entrar en vigor.</p>
+
+  <h2>8. Ley aplicable</h2>
+  <p>Las relaciones entre operador y usuarios se rigen por la legislación española y europea aplicable, sin perjuicio de los derechos imperativos de los consumidores en su lugar de residencia habitual.</p>
+
+  <p><em>Última revisión: agosto 2026.</em></p>
+  <a class="back" href="index.html">Volver al ranking</a>
+</article>
+
+<footer class="foot">
+  <span>© RankLOL · Ranking pay-to-rank para apps indie y herramientas de IA.</span>
+  <span>
+    <a href="como-funciona.html">Cómo funciona</a> ·
+    <a href="terminos.html">Términos</a> ·
+    <a href="acuerdo-usuario.html">Acuerdo de usuario</a> ·
+    <a href="aviso-legal.html">Aviso legal</a> ·
+    <a href="politica-privacidad.html">Privacidad</a> ·
+    <a href="politica-cookies.html">Cookies</a> ·
+    <a href="contacto.html">Contacto</a>
+  </span>
+</footer>
+
+</body>
+</html>
