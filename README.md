@@ -27,7 +27,7 @@ vercel --prod
 
 Vercel detecta el `index.html` raíz automáticamente. No hay funciones serverless en esta versión.
 
-## Futura activación de Stripe (cuando tengas tráfico)
+## Futura activación de Stripe (cuando tenga tráfico)
 
 1. Crear cuenta Stripe (DNI/NIE).
 2. `STRIPE_SECRET_KEY` en Vercel → Settings → Environment Variables.
